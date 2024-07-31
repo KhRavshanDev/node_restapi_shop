@@ -2,8 +2,12 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
 const productRoutes = require('./api/routes/product.js');
 const orderRoutes = require('./api/routes/order.js');
+
+mongoose.connect('mongodb+srv://ravshanxakimov2002:XN2By9hUTyO0DWZh@node-rest-shop.ixwlzu3.mongodb.net/?retryWrites=true&w=majority&appName=node-rest-shop');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
