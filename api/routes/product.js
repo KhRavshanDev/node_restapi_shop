@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 const Product = require("../models/product.js");
-const product = require("../models/product.js");
 
 router.get("/", (req, res, next) => {
   Product.find()
