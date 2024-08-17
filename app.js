@@ -10,6 +10,7 @@ const orderRoutes = require('./api/routes/order.js');
 mongoose.connect('mongodb+srv://ravshanxakimov2002:XN2By9hUTyO0DWZh@node-rest-shop.ixwlzu3.mongodb.net/?retryWrites=true&w=majority&appName=node-rest-shop');
 
 app.use(morgan('dev'));
+app.use(express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
