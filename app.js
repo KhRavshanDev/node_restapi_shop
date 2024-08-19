@@ -6,8 +6,11 @@ const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/product.js');
 const orderRoutes = require('./api/routes/order.js');
+const userRoutes = require('./api/routes/user.js');
 
-mongoose.connect('mongodb+srv://ravshanxakimov2002:XN2By9hUTyO0DWZh@node-rest-shop.ixwlzu3.mongodb.net/?retryWrites=true&w=majority&appName=node-rest-shop');
+mongoose.connect('mongodb+srv://ravshanxakimov2002:XN2By9hUTyO0DWZh@node-rest-shop.ixwlzu3.mongodb.net/?retryWrites=true&w=majority&appName=node-rest-shop', {
+    serverSelectionTimeoutMS: 30000
+});
 
 app.use(morgan('dev'));
 app.use(express.static('uploads'));
@@ -29,6 +32,7 @@ app.use((req, res, next) => {
 
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use('/user', userRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
