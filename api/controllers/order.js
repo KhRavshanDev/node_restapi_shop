@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Order = require("../models/order.js");
 const Product = require("../models/product.js");
 
-exports.getAllOrders = (req, res, next) => {
+exports.getAllOrders = (req, res) => {
   Order.find()
     .select("product quantity _id")
     .populate("product", "name")
@@ -50,7 +50,6 @@ exports.createOrder = (req, res, next) => {
       res.status(201).json({
         message: "Order created succesfully!",
         createdOrder: {
-          _id: result._id,
           product: result.product,
           quantity: result.quantity,
         },

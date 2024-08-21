@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const {Router} = require('express');
+const router = Router();
 const checkAuth = require('../middleware/check-auth.js');
 
 const OrdersController = require('../controllers/order.js');

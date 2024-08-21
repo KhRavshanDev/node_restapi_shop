@@ -1,5 +1,3 @@
-const express = require("express");
-const router = express.Router();
 const mongoose = require("mongoose");
 
 const Product = require("../models/product.js");
@@ -24,13 +22,10 @@ exports.getAllProducts = (req, res, next) => {
           };
         }),
       };
-      res.status(200).json(response);
+      res.status(200).json({data: response});
     })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: err,
-      });
+    .catch((error) => {
+      return res.status(500).json({ error: error.message });
     });
 };
 
